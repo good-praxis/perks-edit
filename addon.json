@@ -1,0 +1,11 @@
+{
+	"title"		:	"zombie perk bottles fix",
+	"type"		:	"weapon",
+    "tags"		:	[ "fun" ],
+    "ignore"    : 
+    [
+        ".git",
+        ".git/*"
+    ]
+    
+}
