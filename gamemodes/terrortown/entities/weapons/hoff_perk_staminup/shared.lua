@@ -46,10 +46,16 @@ SWEP.SwayScale = 0.01
 SWEP.BobScale = 0.01
 
 function SWEP:Equip(NewOwner)
+	hook.Add( "TTTEndRound ", "removeFailsafe", function(win)
+		self.Owner:SetNetworkedString("stamIsActive","false")
+		self.Owner:SetWalkSpeed(250)
+		self.Owner:SetRunSpeed(500)
+	end )
 local oldWep = self.Owner:GetActiveWeapon()
 NewOwner:SetActiveWeapon("zombies_perk_staminup")
 timer.Simple(3.8,function() NewOwner:SetActiveWeapon(oldWep) end)
 end
+
 
 function SWEP:Deploy()
 if self.Owner:GetNetworkedString("stamIsActive") == "true" then 	self.Owner:DrawViewModel(false) return false end
